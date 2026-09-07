@@ -1,0 +1,6 @@
+.validation-deps/
+__pycache__/
+*.pyc
+tmp/
+results/
+DK1-Validation/

@@ -1,0 +1,285 @@
+{
+  "status": "nominal_envelope_conflicts",
+  "mechanical_installation_validated": false,
+  "source_geometry": "datasheet nominal cylinder diameter20mm length35mm",
+  "pose_count": 2,
+  "assumed_placements": [
+    "left_hip_yaw",
+    "left_hip_roll",
+    "left_hip_pitch",
+    "left_knee",
+    "left_ankle_pitch",
+    "left_ankle_roll",
+    "right_hip_yaw",
+    "right_hip_roll",
+    "right_hip_pitch",
+    "right_knee",
+    "right_ankle_pitch",
+    "right_ankle_roll",
+    "waist_yaw",
+    "left_shoulder_pitch",
+    "left_shoulder_roll",
+    "left_shoulder_yaw",
+    "left_elbow",
+    "right_shoulder_pitch",
+    "right_shoulder_roll",
+    "right_shoulder_yaw",
+    "right_elbow",
+    "neck_yaw",
+    "neck_pitch"
+  ],
+  "intersections": [
+    {
+      "pose": "stand",
+      "motor_a": "left_hip_yaw",
+      "motor_b": "left_hip_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "left_hip_yaw",
+      "motor_b": "left_hip_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "left_hip_roll",
+      "motor_b": "left_hip_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "left_ankle_pitch",
+      "motor_b": "left_ankle_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "right_hip_yaw",
+      "motor_b": "right_hip_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "right_hip_yaw",
+      "motor_b": "right_hip_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "right_hip_roll",
+      "motor_b": "right_hip_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "right_ankle_pitch",
+      "motor_b": "right_ankle_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "left_shoulder_pitch",
+      "motor_b": "left_shoulder_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "left_shoulder_pitch",
+      "motor_b": "left_shoulder_yaw",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "left_shoulder_roll",
+      "motor_b": "left_shoulder_yaw",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "right_shoulder_pitch",
+      "motor_b": "right_shoulder_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "right_shoulder_pitch",
+      "motor_b": "right_shoulder_yaw",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "right_shoulder_roll",
+      "motor_b": "right_shoulder_yaw",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "neck_yaw",
+      "motor_b": "neck_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "left_hip_yaw",
+      "motor_b": "left_hip_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "left_hip_yaw",
+      "motor_b": "left_hip_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "left_hip_roll",
+      "motor_b": "left_hip_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "left_ankle_pitch",
+      "motor_b": "left_ankle_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "right_hip_yaw",
+      "motor_b": "right_hip_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "right_hip_yaw",
+      "motor_b": "right_hip_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "right_hip_roll",
+      "motor_b": "right_hip_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "right_ankle_pitch",
+      "motor_b": "right_ankle_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "left_shoulder_pitch",
+      "motor_b": "left_shoulder_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "left_shoulder_pitch",
+      "motor_b": "left_shoulder_yaw",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "left_shoulder_roll",
+      "motor_b": "left_shoulder_yaw",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "right_shoulder_pitch",
+      "motor_b": "right_shoulder_roll",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "right_shoulder_pitch",
+      "motor_b": "right_shoulder_yaw",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "right_shoulder_roll",
+      "motor_b": "right_shoulder_yaw",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "neck_yaw",
+      "motor_b": "neck_pitch",
+      "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    }
+  ],
+  "missing_checks": [
+    "actual assembly axis offsets",
+    "real flange/housing shape",
+    "motor-to-link interference",
+    "fasteners and bearings",
+    "wire bend radius and routing",
+    "load ratings and fits",
+    "continuous full-range swept-volume collision",
+    "manufacturing tolerances"
+  ],
+  "available_cad": "TS20.SLDPRT is one component, not a robot assembly; it has not been parsed.",
+  "interpretation": "Assumed placements indicate the idealized skeleton is not a physically packaged assembly. Negative distances are envelope-screening estimates, not manufacturing clearances."
+}

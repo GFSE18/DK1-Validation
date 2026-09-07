@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "measurement_source": null,
+  "bodies": {
+    "pelvis": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_hip_yaw_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_hip_roll_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_hip_pitch_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_knee_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_ankle_pitch_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_ankle_roll_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_hip_yaw_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_hip_roll_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_hip_pitch_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_knee_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_ankle_pitch_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_ankle_roll_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "waist_yaw_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_shoulder_pitch_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_shoulder_roll_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_shoulder_yaw_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "left_elbow_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_shoulder_pitch_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_shoulder_roll_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_shoulder_yaw_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "right_elbow_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "neck_yaw_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    },
+    "neck_pitch_link": {
+      "mass_kg": null,
+      "com_m": null,
+      "fullinertia_kg_m2": null,
+      "note": "Local BODY frame. Inertia about COM: Ixx,Iyy,Izz,Ixy,Ixz,Iyz. Matrix off-diagonal convention, not unsigned CAD products."
+    }
+  }
+}

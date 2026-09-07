@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="TS20 v2 - torque control; estimated mechanics">
+  <compiler angle="radian" autolimits="true" inertiafromgeom="true" />
+  <option timestep="0.001" integrator="implicitfast" gravity="0 0 -9.81" />
+  <size nuser_actuator="4" />
+  <default>
+    <joint type="hinge" damping="0.02" armature="0.00001" />
+    <geom contype="2" conaffinity="1" friction="0.8 0.005 0.0001" rgba="0.45 0.55 0.65 1" />
+    <default class="ts20_50">
+      <general gear="1" ctrllimited="false" biastype="affine" biasprm="0 -12 -0.4" forcelimited="true" forcerange="-2 2" user="0.7 31.4 50 0.3" />
+    </default>
+    <default class="ts20_100">
+      <general gear="1" ctrllimited="false" biastype="affine" biasprm="0 -12 -0.4" forcelimited="true" forcerange="-4 4" user="1.5 15.7 100 0.3" />
+    </default>
+  </default>
+  <visual>
+    <global azimuth="135" elevation="-15" />
+    <headlight diffuse="0.7 0.7 0.7" />
+  </visual>
+  <worldbody>
+    <light pos="0 -1 2" dir="0 0 -1" />
+    <geom name="floor" type="plane" size="2 2 0.05" contype="1" conaffinity="2" rgba="0.22 0.25 0.28 1" />
+    <body name="pelvis" pos="0 0 0.295">
+      <freejoint name="floating_base" />
+      <geom name="pelvis_shape" type="box" pos="0 0 0.0175" size="0.026 0.05 0.0175" mass="0.35" />
+      <body name="left_hip_yaw_link" pos="0 0.04 0">
+        <joint name="left_hip_yaw" axis="0 0 1" range="-0.78539816 0.78539816" />
+        <geom name="left_hip_yaw_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+        <body name="left_hip_roll_link" pos="0 0 0">
+          <joint name="left_hip_roll" axis="1 0 0" range="-0.61086524 0.61086524" />
+          <geom name="left_hip_roll_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+          <body name="left_hip_pitch_link" pos="0 0 0">
+            <joint name="left_hip_pitch" axis="0 1 0" range="-1.57079633 0.78539816" />
+            <geom name="left_thigh" type="box" pos="0 0 -0.06" size="0.015 0.0125 0.06" mass="0.18" rgba="0.2 0.5 0.85 1" />
+            <body name="left_knee_link" pos="0 0 -0.12">
+              <joint name="left_knee" axis="0 1 0" range="0.00000000 2.44346095" />
+              <geom name="left_shank" type="box" pos="0 0 -0.0675" size="0.013 0.012 0.0675" mass="0.16" rgba="0.2 0.5 0.85 1" />
+              <body name="left_ankle_pitch_link" pos="0 0 -0.135">
+                <joint name="left_ankle_pitch" axis="0 1 0" range="-1.04719755 0.78539816" />
+                <geom name="left_ankle_pitch_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+                <body name="left_ankle_roll_link" pos="0 0 0">
+                  <joint name="left_ankle_roll" axis="1 0 0" range="-0.52359878 0.52359878" />
+                  <geom name="left_ankle_block" type="box" pos="0 0 -0.015" size="0.012 0.012 0.015" mass="0.035" rgba="0.2 0.5 0.85 1" />
+                  <geom name="left_foot" type="box" pos="0.015 0 -0.035" size="0.05 0.0275 0.005" mass="0.085" rgba="0.2 0.5 0.85 1" />
+                  <site name="left_sole" type="box" pos="0.015 0 -0.039" size="0.049 0.0265 0.002" rgba="0 1 0 0.2" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="right_hip_yaw_link" pos="0 -0.04 0">
+        <joint name="right_hip_yaw" axis="0 0 1" range="-0.78539816 0.78539816" />
+        <geom name="right_hip_yaw_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+        <body name="right_hip_roll_link" pos="0 0 0">
+          <joint name="right_hip_roll" axis="1 0 0" range="-0.61086524 0.61086524" />
+          <geom name="right_hip_roll_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+          <body name="right_hip_pitch_link" pos="0 0 0">
+            <joint name="right_hip_pitch" axis="0 1 0" range="-1.57079633 0.78539816" />
+            <geom name="right_thigh" type="box" pos="0 0 -0.06" size="0.015 0.0125 0.06" mass="0.18" rgba="0.85 0.4 0.2 1" />
+            <body name="right_knee_link" pos="0 0 -0.12">
+              <joint name="right_knee" axis="0 1 0" range="0.00000000 2.44346095" />
+              <geom name="right_shank" type="box" pos="0 0 -0.0675" size="0.013 0.012 0.0675" mass="0.16" rgba="0.85 0.4 0.2 1" />
+              <body name="right_ankle_pitch_link" pos="0 0 -0.135">
+                <joint name="right_ankle_pitch" axis="0 1 0" range="-1.04719755 0.78539816" />
+                <geom name="right_ankle_pitch_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+                <body name="right_ankle_roll_link" pos="0 0 0">
+                  <joint name="right_ankle_roll" axis="1 0 0" range="-0.52359878 0.52359878" />
+                  <geom name="right_ankle_block" type="box" pos="0 0 -0.015" size="0.012 0.012 0.015" mass="0.035" rgba="0.85 0.4 0.2 1" />
+                  <geom name="right_foot" type="box" pos="0.015 0 -0.035" size="0.05 0.0275 0.005" mass="0.085" rgba="0.85 0.4 0.2 1" />
+                  <site name="right_sole" type="box" pos="0.015 0 -0.039" size="0.049 0.0265 0.002" rgba="0 1 0 0.2" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="waist_yaw_link" pos="0 0 0.035">
+        <joint name="waist_yaw" axis="0 0 1" range="-0.78539816 0.78539816" />
+        <geom name="torso_shape" type="box" pos="0 0 0.035" size="0.026 0.06 0.035" mass="0.6" />
+        <body name="left_shoulder_pitch_link" pos="0 0.0725 0.07">
+          <joint name="left_shoulder_pitch" axis="0 1 0" range="-2.61799388 1.57079633" />
+          <geom name="left_shoulder_pitch_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+          <body name="left_shoulder_roll_link" pos="0 0 0">
+            <joint name="left_shoulder_roll" axis="1 0 0" range="-1.74532925 1.74532925" />
+            <geom name="left_shoulder_roll_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+            <body name="left_shoulder_yaw_link" pos="0 0 0">
+              <joint name="left_shoulder_yaw" axis="0 0 1" range="-1.57079633 1.57079633" />
+              <geom name="left_upper_arm" type="box" pos="0 0 -0.04" size="0.01 0.01 0.04" mass="0.075" />
+              <body name="left_elbow_link" pos="0 0 -0.08">
+                <joint name="left_elbow" axis="0 1 0" range="-2.44346095 0.00000000" />
+                <geom name="left_forearm" type="box" pos="0 0 -0.04" size="0.009 0.009 0.04" mass="0.06" />
+                <geom name="left_hand" type="box" pos="0 0 -0.10" size="0.01 0.015 0.02" mass="0.015" />
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="right_shoulder_pitch_link" pos="0 -0.0725 0.07">
+          <joint name="right_shoulder_pitch" axis="0 1 0" range="-2.61799388 1.57079633" />
+          <geom name="right_shoulder_pitch_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+          <body name="right_shoulder_roll_link" pos="0 0 0">
+            <joint name="right_shoulder_roll" axis="1 0 0" range="-1.74532925 1.74532925" />
+            <geom name="right_shoulder_roll_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+            <body name="right_shoulder_yaw_link" pos="0 0 0">
+              <joint name="right_shoulder_yaw" axis="0 0 1" range="-1.57079633 1.57079633" />
+              <geom name="right_upper_arm" type="box" pos="0 0 -0.04" size="0.01 0.01 0.04" mass="0.075" />
+              <body name="right_elbow_link" pos="0 0 -0.08">
+                <joint name="right_elbow" axis="0 1 0" range="-2.44346095 0.00000000" />
+                <geom name="right_forearm" type="box" pos="0 0 -0.04" size="0.009 0.009 0.04" mass="0.06" />
+                <geom name="right_hand" type="box" pos="0 0 -0.10" size="0.01 0.015 0.02" mass="0.015" />
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="neck_yaw_link" pos="0 0 0.085">
+          <joint name="neck_yaw" axis="0 0 1" range="-1.22173048 1.22173048" />
+          <geom name="neck_yaw_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+          <body name="neck_pitch_link" pos="0 0 0">
+            <joint name="neck_pitch" axis="0 1 0" range="-0.61086524 0.61086524" />
+            <geom name="head_shape" type="box" pos="0 0 0.0425" size="0.0275 0.0325 0.0425" mass="0.155" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <general name="left_hip_yaw_servo" joint="left_hip_yaw" class="ts20_50" />
+    <general name="left_hip_roll_servo" joint="left_hip_roll" class="ts20_100" />
+    <general name="left_hip_pitch_servo" joint="left_hip_pitch" class="ts20_100" />
+    <general name="left_knee_servo" joint="left_knee" class="ts20_100" />
+    <general name="left_ankle_pitch_servo" joint="left_ankle_pitch" class="ts20_100" />
+    <general name="left_ankle_roll_servo" joint="left_ankle_roll" class="ts20_100" />
+    <general name="right_hip_yaw_servo" joint="right_hip_yaw" class="ts20_50" />
+    <general name="right_hip_roll_servo" joint="right_hip_roll" class="ts20_100" />
+    <general name="right_hip_pitch_servo" joint="right_hip_pitch" class="ts20_100" />
+    <general name="right_knee_servo" joint="right_knee" class="ts20_100" />
+    <general name="right_ankle_pitch_servo" joint="right_ankle_pitch" class="ts20_100" />
+    <general name="right_ankle_roll_servo" joint="right_ankle_roll" class="ts20_100" />
+    <general name="waist_yaw_servo" joint="waist_yaw" class="ts20_50" />
+    <general name="left_shoulder_pitch_servo" joint="left_shoulder_pitch" class="ts20_50" />
+    <general name="left_shoulder_roll_servo" joint="left_shoulder_roll" class="ts20_50" />
+    <general name="left_shoulder_yaw_servo" joint="left_shoulder_yaw" class="ts20_50" />
+    <general name="left_elbow_servo" joint="left_elbow" class="ts20_50" />
+    <general name="right_shoulder_pitch_servo" joint="right_shoulder_pitch" class="ts20_50" />
+    <general name="right_shoulder_roll_servo" joint="right_shoulder_roll" class="ts20_50" />
+    <general name="right_shoulder_yaw_servo" joint="right_shoulder_yaw" class="ts20_50" />
+    <general name="right_elbow_servo" joint="right_elbow" class="ts20_50" />
+    <general name="neck_yaw_servo" joint="neck_yaw" class="ts20_50" />
+    <general name="neck_pitch_servo" joint="neck_pitch" class="ts20_50" />
+  </actuator>
+  <sensor>
+    <jointpos name="left_hip_yaw_angle" joint="left_hip_yaw" />
+    <jointvel name="left_hip_yaw_speed" joint="left_hip_yaw" />
+    <actuatorfrc name="left_hip_yaw_torque" actuator="left_hip_yaw_servo" />
+    <jointpos name="left_hip_roll_angle" joint="left_hip_roll" />
+    <jointvel name="left_hip_roll_speed" joint="left_hip_roll" />
+    <actuatorfrc name="left_hip_roll_torque" actuator="left_hip_roll_servo" />
+    <jointpos name="left_hip_pitch_angle" joint="left_hip_pitch" />
+    <jointvel name="left_hip_pitch_speed" joint="left_hip_pitch" />
+    <actuatorfrc name="left_hip_pitch_torque" actuator="left_hip_pitch_servo" />
+    <jointpos name="left_knee_angle" joint="left_knee" />
+    <jointvel name="left_knee_speed" joint="left_knee" />
+    <actuatorfrc name="left_knee_torque" actuator="left_knee_servo" />
+    <jointpos name="left_ankle_pitch_angle" joint="left_ankle_pitch" />
+    <jointvel name="left_ankle_pitch_speed" joint="left_ankle_pitch" />
+    <actuatorfrc name="left_ankle_pitch_torque" actuator="left_ankle_pitch_servo" />
+    <jointpos name="left_ankle_roll_angle" joint="left_ankle_roll" />
+    <jointvel name="left_ankle_roll_speed" joint="left_ankle_roll" />
+    <actuatorfrc name="left_ankle_roll_torque" actuator="left_ankle_roll_servo" />
+    <jointpos name="right_hip_yaw_angle" joint="right_hip_yaw" />
+    <jointvel name="right_hip_yaw_speed" joint="right_hip_yaw" />
+    <actuatorfrc name="right_hip_yaw_torque" actuator="right_hip_yaw_servo" />
+    <jointpos name="right_hip_roll_angle" joint="right_hip_roll" />
+    <jointvel name="right_hip_roll_speed" joint="right_hip_roll" />
+    <actuatorfrc name="right_hip_roll_torque" actuator="right_hip_roll_servo" />
+    <jointpos name="right_hip_pitch_angle" joint="right_hip_pitch" />
+    <jointvel name="right_hip_pitch_speed" joint="right_hip_pitch" />
+    <actuatorfrc name="right_hip_pitch_torque" actuator="right_hip_pitch_servo" />
+    <jointpos name="right_knee_angle" joint="right_knee" />
+    <jointvel name="right_knee_speed" joint="right_knee" />
+    <actuatorfrc name="right_knee_torque" actuator="right_knee_servo" />
+    <jointpos name="right_ankle_pitch_angle" joint="right_ankle_pitch" />
+    <jointvel name="right_ankle_pitch_speed" joint="right_ankle_pitch" />
+    <actuatorfrc name="right_ankle_pitch_torque" actuator="right_ankle_pitch_servo" />
+    <jointpos name="right_ankle_roll_angle" joint="right_ankle_roll" />
+    <jointvel name="right_ankle_roll_speed" joint="right_ankle_roll" />
+    <actuatorfrc name="right_ankle_roll_torque" actuator="right_ankle_roll_servo" />
+    <jointpos name="waist_yaw_angle" joint="waist_yaw" />
+    <jointvel name="waist_yaw_speed" joint="waist_yaw" />
+    <actuatorfrc name="waist_yaw_torque" actuator="waist_yaw_servo" />
+    <jointpos name="left_shoulder_pitch_angle" joint="left_shoulder_pitch" />
+    <jointvel name="left_shoulder_pitch_speed" joint="left_shoulder_pitch" />
+    <actuatorfrc name="left_shoulder_pitch_torque" actuator="left_shoulder_pitch_servo" />
+    <jointpos name="left_shoulder_roll_angle" joint="left_shoulder_roll" />
+    <jointvel name="left_shoulder_roll_speed" joint="left_shoulder_roll" />
+    <actuatorfrc name="left_shoulder_roll_torque" actuator="left_shoulder_roll_servo" />
+    <jointpos name="left_shoulder_yaw_angle" joint="left_shoulder_yaw" />
+    <jointvel name="left_shoulder_yaw_speed" joint="left_shoulder_yaw" />
+    <actuatorfrc name="left_shoulder_yaw_torque" actuator="left_shoulder_yaw_servo" />
+    <jointpos name="left_elbow_angle" joint="left_elbow" />
+    <jointvel name="left_elbow_speed" joint="left_elbow" />
+    <actuatorfrc name="left_elbow_torque" actuator="left_elbow_servo" />
+    <jointpos name="right_shoulder_pitch_angle" joint="right_shoulder_pitch" />
+    <jointvel name="right_shoulder_pitch_speed" joint="right_shoulder_pitch" />
+    <actuatorfrc name="right_shoulder_pitch_torque" actuator="right_shoulder_pitch_servo" />
+    <jointpos name="right_shoulder_roll_angle" joint="right_shoulder_roll" />
+    <jointvel name="right_shoulder_roll_speed" joint="right_shoulder_roll" />
+    <actuatorfrc name="right_shoulder_roll_torque" actuator="right_shoulder_roll_servo" />
+    <jointpos name="right_shoulder_yaw_angle" joint="right_shoulder_yaw" />
+    <jointvel name="right_shoulder_yaw_speed" joint="right_shoulder_yaw" />
+    <actuatorfrc name="right_shoulder_yaw_torque" actuator="right_shoulder_yaw_servo" />
+    <jointpos name="right_elbow_angle" joint="right_elbow" />
+    <jointvel name="right_elbow_speed" joint="right_elbow" />
+    <actuatorfrc name="right_elbow_torque" actuator="right_elbow_servo" />
+    <jointpos name="neck_yaw_angle" joint="neck_yaw" />
+    <jointvel name="neck_yaw_speed" joint="neck_yaw" />
+    <actuatorfrc name="neck_yaw_torque" actuator="neck_yaw_servo" />
+    <jointpos name="neck_pitch_angle" joint="neck_pitch" />
+    <jointvel name="neck_pitch_speed" joint="neck_pitch" />
+    <actuatorfrc name="neck_pitch_torque" actuator="neck_pitch_servo" />
+    <touch name="left_foot_contact" site="left_sole" />
+    <touch name="right_foot_contact" site="right_sole" />
+  </sensor>
+  <keyframe>
+    <key name="stand" qpos="0 0 0.295 1 0 0 0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
+    <key name="shallow_squat" qpos="0.0037110593888178473 0 0.2870726675362144 1 0 0 0 0 0 -0.25 0.5 -0.25 0 0 0 -0.25 0.5 -0.25 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
+  </keyframe>
+  <!-- Run using run_tests.py. Standalone Viewer has torque sliders, no balance controller. Motor metadata: rated torque, no-load speed, reduction ratio, stated peak duration. No measured speed/thermal map. -->
+</mujoco>

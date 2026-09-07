@@ -1,0 +1,120 @@
+{
+  "measurement_source": null,
+  "motors": {
+    "left_hip_yaw": {
+      "body": "left_hip_yaw_link",
+      "center_m": null,
+      "axis": null
+    },
+    "left_hip_roll": {
+      "body": "left_hip_roll_link",
+      "center_m": null,
+      "axis": null
+    },
+    "left_hip_pitch": {
+      "body": "left_hip_pitch_link",
+      "center_m": null,
+      "axis": null
+    },
+    "left_knee": {
+      "body": "left_knee_link",
+      "center_m": null,
+      "axis": null
+    },
+    "left_ankle_pitch": {
+      "body": "left_ankle_pitch_link",
+      "center_m": null,
+      "axis": null
+    },
+    "left_ankle_roll": {
+      "body": "left_ankle_roll_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_hip_yaw": {
+      "body": "right_hip_yaw_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_hip_roll": {
+      "body": "right_hip_roll_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_hip_pitch": {
+      "body": "right_hip_pitch_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_knee": {
+      "body": "right_knee_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_ankle_pitch": {
+      "body": "right_ankle_pitch_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_ankle_roll": {
+      "body": "right_ankle_roll_link",
+      "center_m": null,
+      "axis": null
+    },
+    "waist_yaw": {
+      "body": "waist_yaw_link",
+      "center_m": null,
+      "axis": null
+    },
+    "left_shoulder_pitch": {
+      "body": "left_shoulder_pitch_link",
+      "center_m": null,
+      "axis": null
+    },
+    "left_shoulder_roll": {
+      "body": "left_shoulder_roll_link",
+      "center_m": null,
+      "axis": null
+    },
+    "left_shoulder_yaw": {
+      "body": "left_shoulder_yaw_link",
+      "center_m": null,
+      "axis": null
+    },
+    "left_elbow": {
+      "body": "left_elbow_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_shoulder_pitch": {
+      "body": "right_shoulder_pitch_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_shoulder_roll": {
+      "body": "right_shoulder_roll_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_shoulder_yaw": {
+      "body": "right_shoulder_yaw_link",
+      "center_m": null,
+      "axis": null
+    },
+    "right_elbow": {
+      "body": "right_elbow_link",
+      "center_m": null,
+      "axis": null
+    },
+    "neck_yaw": {
+      "body": "neck_yaw_link",
+      "center_m": null,
+      "axis": null
+    },
+    "neck_pitch": {
+      "body": "neck_pitch_link",
+      "center_m": null,
+      "axis": null
+    }
+  }
+}

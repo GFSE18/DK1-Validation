@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source": "KK-servo-datasheet-v0.1.pdf pages 3 and 5",
+  "status": "datasheet limits; uncalibrated dynamics and mass distribution",
+  "voltage_V": 24,
+  "variants": {
+    "50": {
+      "rated_Nm": 0.7,
+      "peak_Nm": 2,
+      "peak_duration_s": 0.3,
+      "no_load_rad_s": 31.4
+    },
+    "100": {
+      "rated_Nm": 1.5,
+      "peak_Nm": 4,
+      "peak_duration_s": 0.3,
+      "no_load_rad_s": 15.7
+    }
+  },
+  "mit": {
+    "kp": 12.0,
+    "kd": 0.4,
+    "kp_max": 64,
+    "kd_max": 2
+  },
+  "unknown": [
+    "loaded torque-speed envelope",
+    "efficiency",
+    "thermal recovery",
+    "rotor inertia",
+    "friction",
+    "control delay",
+    "real link inertias"
+  ],
+  "peak_policy": "Optional cumulative above-rated budget 0.3 s per run, then latch to rated. Conservative test policy, NOT manufacturer thermal logic.",
+  "speed_policy": "No-load speed is an exceedance reference, NOT an enforced loaded-speed envelope."
+}
