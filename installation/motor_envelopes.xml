@@ -12,6 +12,9 @@
     <default class="ts20_100">
       <general gear="1" ctrllimited="false" biastype="affine" biasprm="0 -12 -0.4" forcelimited="true" forcerange="-4 4" user="1.5 15.7 100 0.3" />
     </default>
+    <default class="htdw_5036">
+      <general gear="1" ctrllimited="false" biastype="affine" biasprm="0 -12 -0.4" forcelimited="true" forcerange="-6 6" user="6 7.853981633974483 36 0.3" />
+    </default>
   </default>
   <visual>
     <global azimuth="135" elevation="-15" />
@@ -28,16 +31,16 @@
         <geom name="left_hip_yaw_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
         <body name="left_hip_roll_link" pos="0 0 0">
           <joint name="left_hip_roll" axis="1 0 0" range="-0.61086524 0.61086524" />
-          <geom name="left_hip_roll_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+          <geom name="left_hip_roll_housing" type="sphere" size="0.025" mass="0.323" rgba="0.18 0.2 0.22 1" />
           <body name="left_hip_pitch_link" pos="0 0 0">
             <joint name="left_hip_pitch" axis="0 1 0" range="-1.57079633 0.78539816" />
             <geom name="left_thigh" type="box" pos="0 0 -0.06" size="0.015 0.0125 0.06" mass="0.18" rgba="0.2 0.5 0.85 1" />
             <body name="left_knee_link" pos="0 0 -0.12">
               <joint name="left_knee" axis="0 1 0" range="0.00000000 2.44346095" />
-              <geom name="left_shank" type="box" pos="0 0 -0.0675" size="0.013 0.012 0.0675" mass="0.16" rgba="0.2 0.5 0.85 1" />
+              <geom name="left_shank" type="box" pos="0 0 -0.0675" size="0.013 0.012 0.0675" mass="0.44800000000000006" rgba="0.2 0.5 0.85 1" />
               <body name="left_ankle_pitch_link" pos="0 0 -0.135">
                 <joint name="left_ankle_pitch" axis="0 1 0" range="-1.04719755 0.78539816" />
-                <geom name="left_ankle_pitch_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+                <geom name="left_ankle_pitch_housing" type="sphere" size="0.025" mass="0.323" rgba="0.18 0.2 0.22 1" />
                 <body name="left_ankle_roll_link" pos="0 0 0">
                   <joint name="left_ankle_roll" axis="1 0 0" range="-0.52359878 0.52359878" />
                   <geom name="left_ankle_block" type="box" pos="0 0 -0.015" size="0.012 0.012 0.015" mass="0.035" rgba="0.2 0.5 0.85 1" />
@@ -45,13 +48,13 @@
                   <site name="left_sole" type="box" pos="0.015 0 -0.039" size="0.049 0.0265 0.002" rgba="0 1 0 0.2" />
                   <geom name="envelope_left_ankle_roll" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 0.0 0.7071067811865475 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
                 </body>
-                <geom name="envelope_left_ankle_pitch" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
+                <geom name="envelope_left_ankle_pitch" type="cylinder" size=".025 .0237" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
               </body>
-              <geom name="envelope_left_knee" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
+              <geom name="envelope_left_knee" type="cylinder" size=".025 .0237" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
             </body>
             <geom name="envelope_left_hip_pitch" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
           </body>
-          <geom name="envelope_left_hip_roll" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 0.0 0.7071067811865475 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
+          <geom name="envelope_left_hip_roll" type="cylinder" size=".025 .0237" pos="0.0 0.0 0.0" quat="0.7071067811865475 0.0 0.7071067811865475 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
         </body>
         <geom name="envelope_left_hip_yaw" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
       </body>
@@ -60,16 +63,16 @@
         <geom name="right_hip_yaw_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
         <body name="right_hip_roll_link" pos="0 0 0">
           <joint name="right_hip_roll" axis="1 0 0" range="-0.61086524 0.61086524" />
-          <geom name="right_hip_roll_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+          <geom name="right_hip_roll_housing" type="sphere" size="0.025" mass="0.323" rgba="0.18 0.2 0.22 1" />
           <body name="right_hip_pitch_link" pos="0 0 0">
             <joint name="right_hip_pitch" axis="0 1 0" range="-1.57079633 0.78539816" />
             <geom name="right_thigh" type="box" pos="0 0 -0.06" size="0.015 0.0125 0.06" mass="0.18" rgba="0.85 0.4 0.2 1" />
             <body name="right_knee_link" pos="0 0 -0.12">
               <joint name="right_knee" axis="0 1 0" range="0.00000000 2.44346095" />
-              <geom name="right_shank" type="box" pos="0 0 -0.0675" size="0.013 0.012 0.0675" mass="0.16" rgba="0.85 0.4 0.2 1" />
+              <geom name="right_shank" type="box" pos="0 0 -0.0675" size="0.013 0.012 0.0675" mass="0.44800000000000006" rgba="0.85 0.4 0.2 1" />
               <body name="right_ankle_pitch_link" pos="0 0 -0.135">
                 <joint name="right_ankle_pitch" axis="0 1 0" range="-1.04719755 0.78539816" />
-                <geom name="right_ankle_pitch_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
+                <geom name="right_ankle_pitch_housing" type="sphere" size="0.025" mass="0.323" rgba="0.18 0.2 0.22 1" />
                 <body name="right_ankle_roll_link" pos="0 0 0">
                   <joint name="right_ankle_roll" axis="1 0 0" range="-0.52359878 0.52359878" />
                   <geom name="right_ankle_block" type="box" pos="0 0 -0.015" size="0.012 0.012 0.015" mass="0.035" rgba="0.85 0.4 0.2 1" />
@@ -77,19 +80,19 @@
                   <site name="right_sole" type="box" pos="0.015 0 -0.039" size="0.049 0.0265 0.002" rgba="0 1 0 0.2" />
                   <geom name="envelope_right_ankle_roll" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 0.0 0.7071067811865475 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
                 </body>
-                <geom name="envelope_right_ankle_pitch" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
+                <geom name="envelope_right_ankle_pitch" type="cylinder" size=".025 .0237" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
               </body>
-              <geom name="envelope_right_knee" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
+              <geom name="envelope_right_knee" type="cylinder" size=".025 .0237" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
             </body>
             <geom name="envelope_right_hip_pitch" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 -0.7071067811865475 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
           </body>
-          <geom name="envelope_right_hip_roll" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="0.7071067811865475 0.0 0.7071067811865475 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
+          <geom name="envelope_right_hip_roll" type="cylinder" size=".025 .0237" pos="0.0 0.0 0.0" quat="0.7071067811865475 0.0 0.7071067811865475 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
         </body>
         <geom name="envelope_right_hip_yaw" type="cylinder" size=".01 .0175" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" mass="0" contype="0" conaffinity="0" group="4" rgba="0.95 0.15 0.15 0.35" />
       </body>
       <body name="waist_yaw_link" pos="0 0 0.035">
         <joint name="waist_yaw" axis="0 0 1" range="-0.78539816 0.78539816" />
-        <geom name="torso_shape" type="box" pos="0 0 0.035" size="0.026 0.06 0.035" mass="2.0" />
+        <geom name="torso_shape" type="box" pos="0 0 0.035" size="0.026 0.06 0.035" mass="0.6" />
         <body name="left_shoulder_pitch_link" pos="0 0.0725 0.07">
           <joint name="left_shoulder_pitch" axis="0 1 0" range="-2.61799388 1.57079633" />
           <geom name="left_shoulder_pitch_housing" type="sphere" size="0.01" mass="0.035" rgba="0.18 0.2 0.22 1" />
@@ -148,16 +151,16 @@
   </worldbody>
   <actuator>
     <general name="left_hip_yaw_servo" joint="left_hip_yaw" class="ts20_50" />
-    <general name="left_hip_roll_servo" joint="left_hip_roll" class="ts20_100" />
+    <general name="left_hip_roll_servo" joint="left_hip_roll" class="htdw_5036" />
     <general name="left_hip_pitch_servo" joint="left_hip_pitch" class="ts20_100" />
-    <general name="left_knee_servo" joint="left_knee" class="ts20_100" />
-    <general name="left_ankle_pitch_servo" joint="left_ankle_pitch" class="ts20_100" />
+    <general name="left_knee_servo" joint="left_knee" class="htdw_5036" />
+    <general name="left_ankle_pitch_servo" joint="left_ankle_pitch" class="htdw_5036" />
     <general name="left_ankle_roll_servo" joint="left_ankle_roll" class="ts20_100" />
     <general name="right_hip_yaw_servo" joint="right_hip_yaw" class="ts20_50" />
-    <general name="right_hip_roll_servo" joint="right_hip_roll" class="ts20_100" />
+    <general name="right_hip_roll_servo" joint="right_hip_roll" class="htdw_5036" />
     <general name="right_hip_pitch_servo" joint="right_hip_pitch" class="ts20_100" />
-    <general name="right_knee_servo" joint="right_knee" class="ts20_100" />
-    <general name="right_ankle_pitch_servo" joint="right_ankle_pitch" class="ts20_100" />
+    <general name="right_knee_servo" joint="right_knee" class="htdw_5036" />
+    <general name="right_ankle_pitch_servo" joint="right_ankle_pitch" class="htdw_5036" />
     <general name="right_ankle_roll_servo" joint="right_ankle_roll" class="ts20_100" />
     <general name="waist_yaw_servo" joint="waist_yaw" class="ts20_50" />
     <general name="left_shoulder_pitch_servo" joint="left_shoulder_pitch" class="ts20_50" />

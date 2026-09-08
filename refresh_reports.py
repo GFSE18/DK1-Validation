@@ -39,7 +39,7 @@ def index():
         maxj=max(s['joints'],key=lambda j:j['peak_abs_Nm'])
         rows.append(f'<tr><td>{dict(stand="站立",squat="连续蹲起",single="单腿站立",walk="缓慢走路")[mode]}</td><td>{s["duration_s"]:.0f} 秒</td><td>{maxj["joint"]}: {maxj["peak_abs_Nm"]:.3f} Nm</td><td><a href="{folder.name}/report.html">查看曲线和统计</a></td></tr>')
     body='''<!doctype html><meta charset="utf-8"><title>TS20 验证结果</title><style>body{font:17px system-ui;max-width:1000px;margin:60px auto;padding:20px;color:#223}table{width:100%;border-collapse:collapse}td,th{padding:16px;text-align:left;border-bottom:1px solid #ddd}a{color:#1676bd}</style>
-    <h1>TS20 模型 v2 · 仿真验证结果</h1><p>4.11 kg 估计质量（躯干 2.0 kg），额定扭矩策略，无外部机身辅助，机器人自身碰撞关闭。</p>
+    <h1>TS20 模型 v2 · 仿真验证结果</h1><p>4.438 kg 估计质量（躯干 0.6 kg，6 个 HTDW-5036DNE），额定扭矩策略，无外部机身辅助，机器人自身碰撞关闭。</p>
     <table><tr><th>动作</th><th>时长</th><th>本次最大关节扭矩</th><th>报告</th></tr>'''+''.join(rows)+'''</table>
     <h2>尚未完成的验证</h2><p>真实带载扭矩—速度曲线和热模型未知；实机校准等待测量数据。安装占位检查发现默认髋、肩、踝、颈等轴心处的圆柱包络相交，不能判定机械装配通过。</p>
     <p>请双击工作目录中的 Start_Tests.cmd 运行新测试，参阅 使用说明.md。数据报告保存在 results 中；本页汇总生成时最新通过的额定扭矩测试，不代表所有历史测试都通过。</p>'''

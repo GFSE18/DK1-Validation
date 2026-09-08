@@ -4,6 +4,13 @@ import xml.etree.ElementTree as E
 from pathlib import Path
 
 TORSO_MASS_KG = 0.6
+MOTOR_MASS_KG = 0.035
+HTDW_5036_MASS_KG = 0.323
+HTDW_5036_JOINTS = {
+    'left_hip_roll', 'right_hip_roll',
+    'left_knee', 'right_knee',
+    'left_ankle_pitch', 'right_ankle_pitch',
+}
 
 root = E.Element('mujoco', model='TS20 500mm humanoid - estimated prototype')
 def add(parent, tag, **attrs):
@@ -15,9 +22,14 @@ add(root,'size',nuser_actuator='3')
 default=add(root,'default')
 add(default,'joint',type='hinge',damping='0.02',armature='0.00001')
 add(default,'geom',contype='2',conaffinity='1',friction='0.8 0.005 0.0001',rgba='0.45 0.55 0.65 1')
-for name,peak,rated,speed,kp,kv in [('ts20_50',2,0.7,31.4,12,0.25),('ts20_100',4,1.5,15.7,35,0.6)]:
+for name,peak,rated,speed,kp,kv in [
+    ('ts20_50',2,0.7,31.4,12,0.25),
+    ('ts20_100',4,1.5,15.7,35,0.6),
+    ('htdw_5036',6,6,75*2*math.pi/60,35,0.6),
+]:
     d=add(default,'default',**{'class':name})
-    add(d,'position',kp=kp,kv=kv,gear='1',ctrllimited='true',forcelimited='true',forcerange=f'-{peak} {peak}',user=f'{rated} {speed} {50 if peak==2 else 100}')
+    ratio={'ts20_50':50,'ts20_100':100,'htdw_5036':36}[name]
+    add(d,'position',kp=kp,kv=kv,gear='1',ctrllimited='true',forcelimited='true',forcerange=f'-{peak} {peak}',user=f'{rated} {speed} {ratio}')
 root.append(E.Comment(' Actuator user fields = rated output torque Nm, reference max output speed rad/s, reduction ratio. Values transcribed from shared chat, not independently verified datasheet values. Only peak torque is enforced. No thermal or torque-speed envelope. gear=1 because limits are at gearbox output. '))
 visual=add(root,'visual'); add(visual,'global',azimuth='135',elevation='-15'); add(visual,'headlight',diffuse='0.7 0.7 0.7')
 world=add(root,'worldbody')
@@ -35,18 +47,20 @@ def jointbody(p,name,pos,axis,limits,strong=False):
     b=add(p,'body',name=name+'_link',pos=pos)
     ran=' '.join(f'{math.radians(x):.8f}' for x in limits)
     add(b,'joint',name=name,axis=axis,range=ran)
-    joints.append((name,ran,'ts20_100' if strong else 'ts20_50'))
+    motor_class='htdw_5036' if name in HTDW_5036_JOINTS else 'ts20_100' if strong else 'ts20_50'
+    joints.append((name,ran,motor_class))
     return b
-def motor_mass(b,name):
-    add(b,'geom',name=name+'_housing',type='sphere',size='0.01',mass='0.035',rgba='0.18 0.2 0.22 1')
+def motor_mass(b,name,mass=MOTOR_MASS_KG,size='0.01'):
+    add(b,'geom',name=name+'_housing',type='sphere',size=size,mass=mass,rgba='0.18 0.2 0.22 1')
 for side,y,color in [('left',0.04,'0.2 0.5 0.85 1'),('right',-0.04,'0.85 0.4 0.2 1')]:
     yaw=jointbody(pelvis,side+'_hip_yaw',f'0 {y} 0','0 0 1',(-45,45)); motor_mass(yaw,side+'_hip_yaw')
-    roll=jointbody(yaw,side+'_hip_roll','0 0 0','1 0 0',(-35,35),True); motor_mass(roll,side+'_hip_roll')
+    roll=jointbody(yaw,side+'_hip_roll','0 0 0','1 0 0',(-35,35),True); motor_mass(roll,side+'_hip_roll',HTDW_5036_MASS_KG,'0.025')
     thigh=jointbody(roll,side+'_hip_pitch','0 0 0','0 1 0',(-90,45),True)
     box(thigh,side+'_thigh','0 0 -0.06','0.015 0.0125 0.06',0.18,color)
     shank=jointbody(thigh,side+'_knee','0 0 -0.12','0 1 0',(0,140),True)
-    box(shank,side+'_shank','0 0 -0.0675','0.013 0.012 0.0675',0.16,color)
-    ankle=jointbody(shank,side+'_ankle_pitch','0 0 -0.135','0 1 0',(-60,45),True); motor_mass(ankle,side+'_ankle_pitch')
+    shank_mass=0.16+(HTDW_5036_MASS_KG-MOTOR_MASS_KG if side+'_knee' in HTDW_5036_JOINTS else 0)
+    box(shank,side+'_shank','0 0 -0.0675','0.013 0.012 0.0675',shank_mass,color)
+    ankle=jointbody(shank,side+'_ankle_pitch','0 0 -0.135','0 1 0',(-60,45),True); motor_mass(ankle,side+'_ankle_pitch',HTDW_5036_MASS_KG,'0.025')
     foot=jointbody(ankle,side+'_ankle_roll','0 0 0','1 0 0',(-30,30),True)
     box(foot,side+'_ankle_block','0 0 -0.015','0.012 0.012 0.015',0.035,color)
     box(foot,side+'_foot','0.015 0 -0.035','0.05 0.0275 0.005',0.085,color)

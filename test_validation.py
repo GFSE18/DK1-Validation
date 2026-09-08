@@ -48,8 +48,9 @@ class Validation(unittest.TestCase):
         m,d=self.model()
         ratios=m.actuator_user[:,2]
         self.assertEqual(int((ratios==50).sum()),13)
-        self.assertEqual(int((ratios==100).sum()),10)
-        self.assertAlmostEqual(m.body_mass.sum(),4.11)
+        self.assertEqual(int((ratios==100).sum()),4)
+        self.assertEqual(int((ratios==36).sum()),6)
+        self.assertAlmostEqual(m.body_mass.sum(),4.438)
         self.assertEqual(m.nv,29)
 
     def test_motion_has_four_distinct_swings(self):
@@ -88,7 +89,7 @@ class Validation(unittest.TestCase):
                 'bodies':{'pelvis':{'mass_kg':.4,'com_m':[0,0,.01],'fullinertia_kg_m2':[.0004,.0003,.0002,0,0,0]}}}))
             with patch.object(calibration,'ROOT',temp):calibration.apply_physical(path)
             m=mujoco.MjModel.from_xml_path(str(temp/'ts20_humanoid_measured.xml'))
-            self.assertAlmostEqual(m.body_mass.sum(),4.16)
+            self.assertAlmostEqual(m.body_mass.sum(),4.488)
             status=json.loads((temp/'ts20_humanoid_measured.calibration.json').read_text())
             self.assertFalse(status['hardware_calibrated'])
             self.assertTrue(status['remaining_unmeasured_bodies'])

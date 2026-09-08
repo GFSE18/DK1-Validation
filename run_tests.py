@@ -301,7 +301,7 @@ def write_report(folder,summary,history,traces):
     }
     function draw(){const n=select.value,d=traces[n],s=stats.find(s=>s.joint===n);document.getElementById('jointcharts').innerHTML=
       chart('输出扭矩 Nm（蓝）／请求扭矩（橙）',d,[1,6],s.rated_Nm)+
-      chart('角速度 rad/s；空载参考 '+(s.variant===50?31.4:15.7),d,[2],document.getElementById('reference').checked?(s.variant===50?31.4:15.7):null)+
+      chart('角速度 rad/s；空载参考 '+s.no_load_rad_s.toFixed(3),d,[2],document.getElementById('reference').checked?s.no_load_rad_s:null)+
       chart('机械功率 W：正值输出，负值吸收',d,[3],null)+
       chart('MIT 局部目标角度（蓝）／实际角度（橙），rad',d,[4,5],null);}
     select.value=Object.keys(traces).find(n=>n==='left_knee')||select.value;select.onchange=draw;document.getElementById('reference').onchange=draw;draw();
@@ -432,7 +432,7 @@ def run(args):
         else:final_status='passed_simulation'
     stats=[]
     for j,name in enumerate(control.names):
-        stats.append(dict(joint=name,variant=int(m.actuator_user[j,2]),rated_Nm=float(control.rated[j]),peak_abs_Nm=round(float(accum['peak'][j]),5),
+        stats.append(dict(joint=name,variant=int(m.actuator_user[j,2]),no_load_rad_s=float(m.actuator_user[j,1]),rated_Nm=float(control.rated[j]),peak_abs_Nm=round(float(accum['peak'][j]),5),
                           rms_Nm=round(float(np.sqrt(accum['sq'][j]/max(elapsed,1e-9))),5),peak_abs_rad_s=round(float(accum['speed'][j]),5),
                           peak_abs_W=round(float(accum['power'][j]),5),above_rated_s=round(float(accum['over'][j]),4),saturation_s=round(float(accum['sat'][j]),4),
                           positive_mechanical_J=round(float(accum['energy'][j]),5),negative_mechanical_J=round(float(accum['negative'][j]),5),

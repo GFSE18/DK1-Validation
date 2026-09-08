@@ -41,8 +41,10 @@ def run(placements=None):
         if center.shape!=(3,) or axis.shape!=(3,) or not np.isfinite(np.r_[center,axis]).all() or np.linalg.norm(axis)<1e-8:
             raise ValueError('Invalid placement for '+name)
         quat=axis_quat(axis)
+        ratio=int(m0.actuator_user[expected.index(name),2])
+        envelope_size='.025 .0237' if ratio==36 else '.01 .0175'
         ET.SubElement(bodies[spec['body']],'geom',name='envelope_'+name,type='cylinder',
-                      size='.01 .0175',pos=' '.join(map(str,center)),quat=' '.join(map(str,quat)),
+                      size=envelope_size,pos=' '.join(map(str,center)),quat=' '.join(map(str,quat)),
                       mass='0',contype='0',conaffinity='0',group='4',rgba='0.95 0.15 0.15 0.35')
     folder=ROOT/'installation';folder.mkdir(exist_ok=True)
     tp=folder/'motor_placements.template.json'
@@ -70,7 +72,7 @@ def run(placements=None):
                                           'method':'signed_distance_or_inscribed_sphere_overlap',
                                           'placement_assumed':expected[i] in assumed or expected[j] in assumed})
     report={'status':'nominal_envelope_conflicts' if intersections else 'no_motor_envelope_conflicts_in_sampled_poses',
-            'mechanical_installation_validated':False,'source_geometry':'datasheet nominal cylinder diameter20mm length35mm',
+            'mechanical_installation_validated':False,'source_geometry':'TS20 nominal cylinder diameter20mm length35mm; HTDW-5036 nominal cylinder diameter50mm length47.4mm',
             'pose_count':m.nkey,'assumed_placements':assumed,'intersections':intersections,
             'missing_checks':['actual assembly axis offsets','real flange/housing shape','motor-to-link interference',
                               'fasteners and bearings','wire bend radius and routing','load ratings and fits',
@@ -79,7 +81,7 @@ def run(placements=None):
             'interpretation':'Assumed placements indicate the idealized skeleton is not a physically packaged assembly. Negative distances are envelope-screening estimates, not manufacturing clearances.'}
     (folder/'installation_report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     text=['# 电机安装占位检查','',f'采样姿态：{m.nkey}；电机包络相交记录：{len(intersections)}；未确定安装位置：{len(assumed)}。','',
-          '**尚未通过机械安装验证。** 检查对象是 Ø20×35 mm 圆柱包络；默认将电机中心置于关节轴心。当前髋、肩和踝的轴心重合，会产生占位冲突。',
+          '**尚未通过机械安装验证。** TS20 电机使用 Ø20×35 mm 圆柱包络；HTDW-5036DNE 使用约 Ø50×47.4 mm 包络。默认将电机中心置于关节轴心，当前髋、肩和踝的轴心重合，会产生占位冲突。',
           '', '这不能证明真实设计一定冲突，也不能证明没有报告冲突的位置可以装配。需要真实电机位置、轴间偏移、支架、轴承、紧固件和线缆模型。',
           '', '|姿态|电机 A|电机 B|包络有符号距离 mm|','|---|---|---|---:|']
     text += [f"|{r['pose']}|{r['motor_a']}|{r['motor_b']}|{1000*r['signed_distance_m']:.2f}|" for r in intersections]

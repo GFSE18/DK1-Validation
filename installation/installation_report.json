@@ -1,7 +1,7 @@
 {
   "status": "nominal_envelope_conflicts",
   "mechanical_installation_validated": false,
-  "source_geometry": "datasheet nominal cylinder diameter20mm length35mm",
+  "source_geometry": "TS20 nominal cylinder diameter20mm length35mm; HTDW-5036 nominal cylinder diameter50mm length47.4mm",
   "pose_count": 2,
   "assumed_placements": [
     "left_hip_yaw",
@@ -55,6 +55,14 @@
     },
     {
       "pose": "stand",
+      "motor_a": "left_hip_roll",
+      "motor_b": "left_elbow",
+      "signed_distance_m": -0.00378641412228926,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
       "motor_a": "left_ankle_pitch",
       "motor_b": "left_ankle_roll",
       "signed_distance_m": -0.02,
@@ -82,6 +90,14 @@
       "motor_a": "right_hip_roll",
       "motor_b": "right_hip_pitch",
       "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "stand",
+      "motor_a": "right_hip_roll",
+      "motor_b": "right_elbow",
+      "signed_distance_m": -0.00378641412228926,
       "method": "signed_distance_or_inscribed_sphere_overlap",
       "placement_assumed": true
     },
@@ -175,6 +191,14 @@
     },
     {
       "pose": "shallow_squat",
+      "motor_a": "left_hip_roll",
+      "motor_b": "left_elbow",
+      "signed_distance_m": -0.003786414122289215,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
       "motor_a": "left_ankle_pitch",
       "motor_b": "left_ankle_roll",
       "signed_distance_m": -0.02,
@@ -202,6 +226,14 @@
       "motor_a": "right_hip_roll",
       "motor_b": "right_hip_pitch",
       "signed_distance_m": -0.02,
+      "method": "signed_distance_or_inscribed_sphere_overlap",
+      "placement_assumed": true
+    },
+    {
+      "pose": "shallow_squat",
+      "motor_a": "right_hip_roll",
+      "motor_b": "right_elbow",
+      "signed_distance_m": -0.003786414122289215,
       "method": "signed_distance_or_inscribed_sphere_overlap",
       "placement_assumed": true
     },

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "KK-servo-datasheet-v0.1.pdf pages 3 and 5",
+  "source": "KK-servo-datasheet-v0.1.pdf pages 3 and 5; HighTorque Robotics Product Catalogue page 5",
   "status": "datasheet limits; uncalibrated dynamics and mass distribution",
   "voltage_V": 24,
   "variants": {
@@ -15,6 +15,18 @@
       "peak_Nm": 4,
       "peak_duration_s": 0.3,
       "no_load_rad_s": 15.7
+    },
+    "36": {
+      "model": "HTDW-5036-02-DNE",
+      "rated_Nm": 6.0,
+      "locked_rotor_Nm": 21.0,
+      "peak_Nm": null,
+      "peak_duration_s": null,
+      "no_load_rad_s": 7.853981633974483,
+      "weight_g": 323,
+      "reduction_ratio": 36,
+      "rated_current_A": 2.0,
+      "communication": "CANFD/CAN"
     }
   },
   "mit": {
@@ -32,6 +44,6 @@
     "control delay",
     "real link inertias"
   ],
-  "peak_policy": "Optional cumulative above-rated budget 0.3 s per run, then latch to rated. Conservative test policy, NOT manufacturer thermal logic.",
+  "peak_policy": "TS20 variants use the configured 0.3 s conservative budget. HTDW-5036DNE has no stated transient peak duration in the supplied catalogue; its 6 Nm rated torque is the motion cap and 21 Nm locked-rotor torque is not treated as a safe transient peak.",
   "speed_policy": "No-load speed is an exceedance reference, NOT an enforced loaded-speed envelope."
 }

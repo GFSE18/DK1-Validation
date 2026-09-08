@@ -5,15 +5,21 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent
 TORSO_MASS_KG = 0.6
+HTDW_5036_JOINTS = {
+    'left_hip_roll', 'right_hip_roll',
+    'left_knee', 'right_knee',
+    'left_ankle_pitch', 'right_ankle_pitch',
+}
 
 def build():
     tree = ET.parse(ROOT / 'ts20_humanoid_500mm.xml')
     root = tree.getroot()
     root.set('model', 'TS20 v2 - torque control; estimated mechanics')
     root.find('size').set('nuser_actuator', '4')
+    specs = {'ts20_50': 2, 'ts20_100': 4, 'htdw_5036': 6}
     for default in root.findall('./default/default'):
         p = default.find('position')
-        peak = 2 if default.get('class') == 'ts20_50' else 4
+        peak = specs[default.get('class')]
         rated, speed, ratio = p.get('user').split()
         default.remove(p)
         ET.SubElement(default, 'general', gear='1', ctrllimited='false',
@@ -22,6 +28,8 @@ def build():
     for actuator in root.findall('./actuator/position'):
         actuator.tag = 'general'
         actuator.attrib.pop('ctrlrange')
+        if actuator.get('joint') in HTDW_5036_JOINTS:
+            actuator.set('class','htdw_5036')
     torso = root.find(".//geom[@name='torso_shape']")
     if torso is None:
         raise ValueError('torso_shape not found in source model')
@@ -38,16 +46,20 @@ def build():
     tree.write(ROOT / 'ts20_humanoid_v2.xml', encoding='utf-8', xml_declaration=True)
     config = {
         'schema_version': 1,
-        'source': 'KK-servo-datasheet-v0.1.pdf pages 3 and 5',
+        'source': 'KK-servo-datasheet-v0.1.pdf pages 3 and 5; HighTorque Robotics Product Catalogue page 5',
         'status': 'datasheet limits; uncalibrated dynamics and mass distribution',
         'voltage_V': 24,
         'variants': {
             '50': {'rated_Nm': .7, 'peak_Nm': 2, 'peak_duration_s': .3, 'no_load_rad_s': 31.4},
-            '100': {'rated_Nm': 1.5, 'peak_Nm': 4, 'peak_duration_s': .3, 'no_load_rad_s': 15.7}},
+            '100': {'rated_Nm': 1.5, 'peak_Nm': 4, 'peak_duration_s': .3, 'no_load_rad_s': 15.7},
+            '36': {'model': 'HTDW-5036-02-DNE', 'rated_Nm': 6.0, 'locked_rotor_Nm': 21.0,
+                   'peak_Nm': None, 'peak_duration_s': None, 'no_load_rad_s': 75*2*3.141592653589793/60,
+                   'weight_g': 323, 'reduction_ratio': 36, 'rated_current_A': 2.0,
+                   'communication': 'CANFD/CAN'}},
         'mit': {'kp': 12.0, 'kd': .4, 'kp_max': 64, 'kd_max': 2},
         'unknown': ['loaded torque-speed envelope', 'efficiency', 'thermal recovery',
                     'rotor inertia', 'friction', 'control delay', 'real link inertias'],
-        'peak_policy': 'Optional cumulative above-rated budget 0.3 s per run, then latch to rated. Conservative test policy, NOT manufacturer thermal logic.',
+        'peak_policy': 'TS20 variants use the configured 0.3 s conservative budget. HTDW-5036DNE has no stated transient peak duration in the supplied catalogue; its 6 Nm rated torque is the motion cap and 21 Nm locked-rotor torque is not treated as a safe transient peak.',
         'speed_policy': 'No-load speed is an exceedance reference, NOT an enforced loaded-speed envelope.',
     }
     (ROOT / 'motor_config.json').write_text(json.dumps(config, indent=2), encoding='utf-8')
